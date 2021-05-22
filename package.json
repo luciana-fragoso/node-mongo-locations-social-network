@@ -1,0 +1,27 @@
+{
+  "name": "project06",
+  "version": "1.0.0",
+  "description": "Mini social network for a travel agency about destiny locations developed in NodeJS and using MongoDB.",
+  "main": "app.js",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app",
+    "dev": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luciana-fragoso/node-mongo-locations-social-network.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luciana-fragoso/node-mongo-locations-social-network/issues"
+  },
+  "homepage": "https://github.com/luciana-fragoso/node-mongo-locations-social-network#readme"
+}
