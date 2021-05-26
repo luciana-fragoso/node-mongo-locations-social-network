@@ -1,0 +1,13 @@
+<% var user = null %>
+
+<ul class=" header-ul mt-0 pt-3 text-center">
+    <% if (user !== null) {%>
+        <li class="mb-2 li-header-text font-weight-bold"> <a class="header-link text-white" href="../login">Login</a></li>
+        <li class="li-header-text font-weight-bold"><a class="header-link text-white" href="../signup">Sign up</a></li>
+    <% } else {%>
+        <li class="mb-2 li-header-text font-weight-bold"><a class="header-link text-white" href="../">Home </a></li>
+        <li class="mb-2 li-header-text font-weight-bold"><a class="header-link text-white" href="../newLocation"> + Location</a></li>
+        <li class="li-header-text font-weight-bold"> <a class="header-link text-white" href="../myProfile">My profile</a></li>
+        <li class="li-header-text font-weight-bold"> <a class="header-link text-white" href="../logout">Logout</a></li>
+    <% } %>
+</ul>

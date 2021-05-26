@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+
+  <body>
+    <%- include('../partials/header') %>
+      <a class="text-decoration-none" href="../seeLocation/<%-loc._id%>"><h2 class="text-center navy-text font-weight-bold mt-4"><%- loc.title %></h2></a>
+      <div class="location-responsive mt-3">
+        <div class="image-div">
+          <div class="location-page-likes d-flex mb-1">
+            <h6 class="font-weight-bold w-50 mt-2 ml-2 text-left">+ Like</h1>
+              <h6 class="font-weight-bold w-50 mr-2 mt-2 text-right"><i class="fa fa-thumbs-up text-dark"></i> 5 Likes</h1>
+         </div>
+            <a class="text-decoration-none" href="../seeLocation/<%-loc._id%>"> <img src="/images/<%-loc.image_url%>" class="location-image" id="image-<%-loc._id%>" alt="Image of <%-loc.title%>"></a>
+         
+        </div>
+          <div class="text-div">  
+            <h6 class="text-dark font-weight-bold mb-0">Author's Description</h6>
+            <div class="quote w-100">
+              <q class="text-dark"><%- loc.description %>
+                <%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %><%- loc.description %>
+              </q>
+            </div>
+            <div class="d-flex text-center w-100">
+              <span id="comment-display" class="font-weight-bold  text-dark mt-4 w-50 text-left">Leave a comment</span>
+              <h6 id="see-comments-display" class="text-dark w-50 text-right mt-4 mb-0" ><u>Click here to read - 5 comments</u></h6>
+            </div>
+            <div>
+          
+          <div id="all-comments" class="w-100 mt-2">
+            <div>
+              <p class="each-comment">commentscommentcommentcommentcommentcomment commentcommentcommentcommentcommentcomment
+                commentcommentcommentcommentcomm entcommentcommentcommentcommentcommentcomment
+                commentscommentcommentcommentcommentcomment commentcommentcommentcommentcommentcomment
+                commentcommentcommentcommentcomm entcommentcommentcommentcommentcommentcommentcommentscommentcommentcommentcommentcomment commentcommentcommentcommentcommentcomment
+                commentcommentcommentcommentcomm entcommentcommentcommentcommentcommentcomment
+              </p>
+            </div>
+            </div>
+           
+          </div>
+            <form id="comment-form" class="mt-2">
+            <div class="form-group">
+              <textarea class="form-control" id="comment" name="comment" placeholder="Write your comment" rows="2" required></textarea>
+            </div>
+            <div class="container">
+              <div class="col text-center">
+                <button class="btn btn-secondary w-50 btn-form" type="submit">OK</button>
+              </div>
+            </div>
+            </form>
+           
+        </div>
+
+        </div>
+                  
+ 
+ 
+  
+  </body>
+</html>
+
+<script>
+  $( document ).ready(function() {
+
+    $("#comment-display").click(function(e) {
+      $("#all-comments").css({ display: "none" });
+      $("#comment-form").css({ display: "block" });
+    
+    });
+
+    $("#see-comments-display").click(function(e) {
+      $("#all-comments").css({ display: "block" });
+      $("#comment-form").css({ display: "none" });
+    
+    });
+  });
+</script>

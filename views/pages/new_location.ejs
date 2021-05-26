@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+
+  <body>
+    <%- include('../partials/header') %>
+
+    <div class="wrapper pt-2 bg-light">
+      <div class="main">
+          <div class="form-content">
+          <h1 class="font-weight-bold text-danger subtitle mb-2">New Location</h1>
+
+          <form action="../newLocation" method="POST">
+            <div class="form-group">
+              <select class="form-control" id="type" name="type" required>
+                <option value="">Type</option>
+                <option value="city">City</option>
+                <option value="attraction">Tourist Attraction</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" id="title" name="title" placeholder="Title"required>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" id="description" name="description" placeholder="Description" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+              <label class="form-heading" for="location-image">Image</label>
+              <input type="file" class="form-control-file" name="image" id="image">
+            </div>
+            <div class="container">
+              <div class="col text-center">
+                <button class="btn btn-secondary w-50 btn-form" type="submit">OK</button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>

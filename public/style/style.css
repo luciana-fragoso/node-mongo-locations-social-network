@@ -1,0 +1,283 @@
+
+/* Scrollbar hacks */
+::-webkit-scrollbar {
+  width: 8px;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #e2e2ff; 
+  border-radius: 9px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #e2e2ff; 
+  border-radius: 9px;
+
+}
+/* General styling rules */
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+
+
+.header {
+    background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url("/images/fullwidth.jpg");
+    height: 28% !important; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid #000000;
+}
+/* Navbar styling rues */
+.header-ul {
+    margin-right: 20px;
+    margin-top: 20px;
+    list-style: none;
+}
+.li-header-text {
+        background-color: #000080;
+        opacity: 0.8;
+        min-width: 120px;
+        display: inline-block;
+        border-radius: 8px;
+        min-height: 45px !important;
+        text-align: center !important;
+        line-height: 45px; 
+        font-size: 18px;
+}
+
+.header-link:hover {
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+
+@media (max-width: 480px) {
+    
+    .li-header-text{
+      font-size: 12px;
+      min-width: 70px;
+      min-height: 35px !important;
+      line-height: 35px; 
+    }
+  }
+
+  /* Styling rules searchbar */
+  .header-searchbar{
+      width: 650px !important;
+      margin: auto;
+      padding-top: 5px;
+  }
+  .searchbar{
+      background-color: #FFFFFF;
+      border-radius: 8px;
+      border: 1px solid #111111;
+      padding: 2%;
+  }
+
+  .my-input {
+    width: 82%;
+    margin-right: 10px;
+  }
+
+  @media (max-width: 769px) {
+    .header-searchbar{
+        width: 80% !important;
+    }
+  }
+
+  /* main div styling rules */
+  .wrapper {
+      height: 70%;
+  }
+  .main {
+      width: 70%;
+      margin: auto;
+      margin-top: 20px;
+      border-radius: 8px;
+  }
+
+  .subtitle{
+    font-family: 'Caladea', serif;
+  }
+
+  .subtitle-icon{
+      height: 60px;
+      width: auto;
+  }
+
+  .form-heading {
+      margin-bottom: 0px;
+  }
+
+  textarea {
+    resize: none !important;
+    overflow-y: auto;
+  }
+
+  .btn-form{
+    font-weight: bold !important;
+    justify-content: center;
+  }
+  .form-content{
+    width: 60%;
+   
+    margin: auto;
+  }
+
+  /* show locations styling rules */
+  .card-body {
+    padding: 0.5rem !important;
+  }
+  .card-index {
+    width: 320px;
+    margin-right: 15px;
+    display: inline;
+  }
+  .card-index:nth-last-child(1){
+    margin-right: 0px !important;
+  }
+  .responsive {
+    display: flex;
+}
+.card-img-top{
+  width: 178px;
+  height: 210px;
+}
+.medium-screen{
+  display: none;
+}
+.large-screen {
+  display: block;
+}
+.likes-index {
+  width: 50%;
+  float: right;
+}
+.comments-index{
+  width: 50%;
+  float: left;
+}
+.location-title,.location-title:hover {
+  font-family: 'Caladea', serif;
+  margin-top: .5rem!important;
+  text-decoration: none;
+}
+@media (max-width: 768px) {
+.medium-screen{
+  display: block;
+}
+.large-screen {
+  display: none;
+}
+
+}
+@media (max-width: 600px) {
+  .responsive {
+    display: block;
+  }
+  .card-index , .card-index:nth-last-child(1) {
+    margin: auto !important;
+    margin-top: 15px !important;
+  }
+  .form-content {
+    width: 100% !important;
+  }
+}
+
+/* see location page styling rules */
+.location-responsive {
+  display: flex;
+  width: 90%;
+  margin: auto;
+}
+.location-image{
+  width: 100%;
+  height: auto;
+}
+.location-page-likes{
+  background-color: #e2e2ff;
+  border-radius: 8px;
+}
+.navy-text{
+  color: #000080;
+  font-family: 'Caladea', serif;
+ 
+}
+
+.quote {
+  border-left: 2px solid #000000 !important;
+  padding: 8px;
+  max-height: 80px;
+  word-wrap: break-word;
+  overflow-y: auto;
+  width: 100%;
+}
+.image-div {
+  width: 40%;
+}
+
+.text-div {
+  width: 60% !important;
+  margin-left: 25px;
+  
+}
+
+#all-comments, #comment-form {
+  display: none;
+}
+
+#comment-display:hover, #see-comments-display:hover {
+  cursor: pointer;
+}
+.each-comment{
+  word-wrap: break-word;
+}
+
+#all-comments {
+  background-color: #e2e2ff;
+  max-height: 200px;
+  padding: 5px;
+  overflow-y: auto;
+}
+@media (max-width: 768px) {
+
+.location-responsive {
+  display: block;
+}
+.image-div, .text-div {
+  width:90% !important;
+  margin: auto;
+
+}
+.text-div {
+  margin-top: 20px;
+  padding-bottom: 20px;
+
+}
+}
+
+/* search div styling rules */
+#search-results{
+  background-color: #ECECEC;
+  border-radius: 10px;  
+  width: 100%;
+  border-top: 0px;
+  max-height: 150px; 
+  font-weight: bold;
+}
+.each-show {
+  border-bottom: 0.8px solid #000000;
+} 
+.each-show:hover {
+  background-color: #FFFFFF;
+}
