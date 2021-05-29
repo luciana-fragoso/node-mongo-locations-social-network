@@ -1,86 +1,41 @@
-<div class="large-screen">
-<% var loc = locals.locations; %>
-<% if (loc.length > 0) { %>
-    <% count = 0 %>
-   
-  <% for (var i=0;i<loc.length;i++) {%>
-    <% if (count === 0) { %>
-        <div class="justify-content-center responsive mt-3">
-    <% }%>
-    <div class="card card-index">
-      <a class="text-decoration-none" href="../seeLocation/<%-loc[i]._id%>"> <img class="card-img-top"  src="/images/<%-loc[i].image_url%>" id="image-<%-loc[i]._id%>" alt="Image of <%-loc[i].title%>"></a>
-        <div class="card-body">
-            <a class="text-decoration-none" href="../seeLocation/<%-loc[i]._id%>"><h4 class="location-title text-dark font-weight-bold mt-2"><%- loc[i].title %></h4></a>
-        </div>
-          <div class="card-footer">
-            <div class="d-flex">
-              <div class="likes-index">
-                <span><i class="fa fa-thumbs-up text-dark"></i> 5 likes </span>
-           
-              </div>
-              <div class="comments-index">
-                <span class="float-right"><i class="fa fa-comments fa-lg text-dark"></i> 8 comments</span>
-            
-              </div>
-            </div>
-              
-          
 
-          </div>
-        </div>
-         
-        <% count++ %>
-        <% if (count === 3) { %>
-            <% count = 0; %>
-            </div>
-        <% } %>
-  
-  <% }%>
-          </div>
-  <% } %>
+<div class="mt-3">
 
-</div>
-
-<div class="medium-screen">
   <% var loc = locals.locations; %>
   <% if (loc.length > 0) { %>
       <% count = 0 %>
-     
-    <% for (var i=0;i<loc.length;i++) {%>
-      <% if (count === 0) { %>
-          <div class="justify-content-center responsive mt-3">
-      <% }%>
-      <div class="card card-index">
-        <a class="text-decoration-none" href="../seeLocation/<%-loc[i]._id%>"> <img class="card-img-top"  src="/images/<%-loc[i].image_url%>" id="image-<%-loc[i]._id%>" alt="Image of <%-loc[i].title%>"></a>
-          <div class="card-body">
-              <a class="text-decoration-none" href="../seeLocation/<%-loc[i]._id%>"><h4 class="location-title text-dark font-weight-bold mt-2"><%- loc[i].title %></h4></a>
-          </div>
-            <div class="card-footer">
-              <div class="d-flex">
-                <div class="likes-index">
-                  <span><i class="fa fa-thumbs-up text-dark"></i> 5 likes </span>
-             
+      <ul class="show-list">
+      <% for (var i=0;i<loc.length;i++) { %>
+      
+                <li class="each-location-card mb-3">
+                  <div class="card card-index">
+                    <a class="text-decoration-none" href="../location/<%-loc[i]._id%>"> <img class="card-img-top"  src="/images/<%-loc[i].image_url%>" id="image-<%-loc[i]._id%>" alt="Image of <%-loc[i].title%>"></a>
+                    <div class="card-body">
+                      <a class="text-decoration-none" href="../location/<%-loc[i]._id%>"><h4 class="location-title text-dark font-weight-bold mt-2"><%- loc[i].title.charAt(0).toUpperCase() + loc[i].title.slice(1) %></h4></a>
+                    </div>
+                    <div class="card-footer">
+                      <div class="d-flex">
+                        <div class="likes-index">
+                          <span><i class="fa fa-thumbs-up text-dark"></i><%- loc[i].numLikes.length %> </span>
+                          <span><i class="ml-3 fa fa-thumbs-down text-dark"></i> <%- loc[i].numDislikes.length %></span>
+                        </div>
+                      <div class="comments-index">
+                        <span class="float-right"><i class="fa fa-comments text-dark"></i> <%- loc[i].comments.length %></span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="comments-index">
-                  <span class="float-right"><i class="fa fa-comments fa-lg text-dark"></i> 8 comments</span>
+
+                </li>
+
+
               
-                </div>
-              </div>
-                
-            
-  
-            </div>
-          </div>
-           
-          <% count++ %>
-          <% if (count === 2) { %>
-              <% count = 0; %>
-              </div>
-          <% } %>
-    
-    <% }%>
-            </div>
-    <% } %>
-  
-  </div>
- 
+     
+       
+          
+        <% }%>
+          </ul>
+      <% } %>
+
+</div>
+</div>

@@ -1,16 +1,25 @@
 
 const express = require('express');
-
 const mongoose = require('mongoose');
+const util = require("../util/check")
+require('dotenv').config()
+
 
 const app = express();
 
 
-mongoose.connect('mongodb://localhost/location_db_schema', {useNewUrlParser: true,useUnifiedTopology: true });
+mongoose.connect('mongodb://localhost/location_db_schema', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true 
+});
+
 
 
 //routes imports
 const homeRoute = require('../routes/home');
+
 
 
 
@@ -26,6 +35,10 @@ app.use(express.static(__dirname + '../../public'));
 
 //middleware routes
 app.use('/',homeRoute);
+
+
+
+
 
 module.exports = app;
 

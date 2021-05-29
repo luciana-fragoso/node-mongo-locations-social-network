@@ -1,13 +1,41 @@
-<% var user = null %>
 
-<ul class=" header-ul mt-0 pt-3 text-center">
-    <% if (user !== null) {%>
-        <li class="mb-2 li-header-text font-weight-bold"> <a class="header-link text-white" href="../login">Login</a></li>
-        <li class="li-header-text font-weight-bold"><a class="header-link text-white" href="../signup">Sign up</a></li>
-    <% } else {%>
-        <li class="mb-2 li-header-text font-weight-bold"><a class="header-link text-white" href="../">Home </a></li>
-        <li class="mb-2 li-header-text font-weight-bold"><a class="header-link text-white" href="../newLocation"> + Location</a></li>
-        <li class="li-header-text font-weight-bold"> <a class="header-link text-white" href="../myProfile">My profile</a></li>
-        <li class="li-header-text font-weight-bold"> <a class="header-link text-white" href="../logout">Logout</a></li>
-    <% } %>
-</ul>
+
+<nav class="navbar navbar-expand-lg navbar-light" id="sideNav">
+  <a class="navbar-brand js-scroll-trigger" href="../">
+    <h2 class="title">Our Locations</h2>
+  </a>
+
+     
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+      <ul class="navbar-nav ml-auto">
+        
+          <% if (locals.user_id !== null ) { %>
+          
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold js-scroll-trigger" href="../newLocation">+ Location</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link font-weight-bold  js-scroll-trigger" href="../myProfile">My Profile</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link font-weight-bold  js-scroll-trigger" href="../logout">Logout</a>
+            </li>
+          <% } else { %>
+            <li class="nav-item">
+            <a class="nav-link font-weight-bold  js-scroll-trigger" href="../login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-weight-bold js-scroll-trigger" href="../signup">Sign up</a>
+          </li>
+          <% } %>
+         
+      </ul>
+
+    </div>
+  </nav>
+
+
