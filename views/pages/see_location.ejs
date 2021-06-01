@@ -102,7 +102,7 @@
 
           $("#all-comments").append(`<div class="each-comment mt-1">
                <q>`+response.comment+`</q> 
-               <span class="font-weight-bold"> - `+response.author+`</span> 
+               <span class="font-weight-bold"><a href="../userPage/<%-user_id%>">- `+response.author+`</a></span> 
               </div>`);
             }); 
             $("#all-comments").animate({ scrollTop: 9999 }, 'slow');

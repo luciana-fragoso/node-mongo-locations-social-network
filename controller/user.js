@@ -57,8 +57,11 @@ exports.signup = async(req,res)=>{
         const accessToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
           expiresIn: "1d"});
       res.cookie('nToken', accessToken, { httpOnly: true});
-      
-         res.redirect("/");
+      if (user.role === 'admin')
+        res.redirect("/adminPage");
+      else
+       res.redirect("/");
+       
   
        }
      }

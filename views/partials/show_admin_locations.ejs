@@ -1,0 +1,53 @@
+<div class="mt-3">
+<% var loc = locals.locations; %>
+  <% if (loc.length > 0) { %>
+      <% count = 0 %>
+      <ul class="show-list">
+      <% for (var i=0;i<loc.length;i++) { %>
+      
+                <li class="each-location-card mb-3">
+                  <div class="card card-index">
+                    <a class="text-decoration-none" href="../location/<%-loc[i]._id%>"> <img class="card-img-top"  src="/images/<%-loc[i].image_url%>" id="image-<%-loc[i]._id%>" alt="Image of <%-loc[i].title%>"></a>
+                    <div class="card-body">
+                      <a class="text-decoration-none" href="../location/<%-loc[i]._id%>"><h4 class="location-title text-dark font-weight-bold mt-2"><%- loc[i].title.charAt(0).toUpperCase() + loc[i].title.slice(1) %></h4></a>
+                    </div>
+                    <div class="card-footer">
+                      <div class="d-flex">
+                        <div class="status">
+                          <% if (loc[i].isApproved ) { %>
+                            <span class="font-weight-bold text-success ml-2">Approved</span>
+                          <% } else { %>
+                            <input type="checkbox" class="<%=loc[i]._id%> checkbox" /><span class="font-weight-bold text-danger ml-2">Approve</span>
+                            <% } %>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                </li>
+              
+     
+       
+          
+        <% }%>
+          </ul>
+      <% } %>
+
+</div>
+</div>
+</div>
+<script>
+$('.checkbox').click(function () {
+  const id = this.className.split(" ")[0]
+  var url = "../adminPage";
+  var data = {"id": id, "test": "test"}
+   $.ajax({
+            method: "POST",
+            url: url,
+            data: data
+            }).done((response) => {
+              if(response === "done")
+              window.location.reload()
+            })
+            
+});
+</script>

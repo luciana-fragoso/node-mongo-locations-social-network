@@ -23,5 +23,8 @@ router.post('/dislike',locationController.newDislike);
 router.post('/login',userController.login);
 router.post('/signup',userController.signup);
 router.get("/logout",userController.logout);
+
+router.get('/adminPage', homeController.adminPage);
+router.post('/adminPage', homeController.approveLocation);
 //ROUTE
 module.exports = router;

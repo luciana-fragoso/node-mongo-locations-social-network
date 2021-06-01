@@ -1,4 +1,5 @@
 const Location = require ('../model/location');
+const User = require ('../model/user');
 const jwt = require('jsonwebtoken');
 
 
@@ -55,4 +56,20 @@ navbarCheck = function(cookie){
 
   return user_id;
 }
-module.exports = { checkUserDislikes, checkUserLikes, isLogged , navbarCheck}
+
+checkAdmin = async function(user_id) {
+  var isAdmin = false;
+   await User.findById(user_id)
+   .exec()
+   .then(user => {
+     if (user.role === "admin"){
+       isAdmin = true;
+     }
+   })
+   .catch(err => {
+    console.log(err);
+    res.status(500).json({ error: err });
+  });
+  return isAdmin;
+}
+module.exports = { checkUserDislikes, checkUserLikes, isLogged , navbarCheck ,checkAdmin }

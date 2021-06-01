@@ -46,13 +46,14 @@ if (user_id !== null){
   }
 
   exports.newLocationPost =  async (req, res) => {
-     console.log(req.file.description);
+    
+    var loc = req.body;
     
     var user_id = navbarCheck(req.headers.cookie);
 
     var newLocation = new Location({
-      title: req.body.title.toLowerCase(),
-      description: req.body.description,
+      title: loc.title.toLowerCase(),
+      description: loc.description,
       image_url: loc.image,
       user_id : user_id,
       isApproved: false },
@@ -80,7 +81,11 @@ if (user_id !== null){
       res.send("not logged in")
     } else {     
       var user_id = navbarCheck(req.headers.cookie);
-      res.render("pages/new_location",{user_id:user_id});
+      var isAdmin;
+      if (user_id !== null){
+        var isAdmin = await checkAdmin(user_id);
+      }
+      res.render("pages/new_location",{user_id:user_id,isAdmin:isAdmin});
     }
     
   }
