@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+
+  <body>
+    
+    <%- include('../partials/navbar') %>
+    <%- include('../partials/searchbar') %>
+    <div id="main" class="main">
+      <div class="wrapper">
+    <div class="container"> 
+      
+      <div class="details"> 
+            <br> 
+            <div class="card-block"> 
+              <p class="card-text"> 
+                  <strong>Name</strong>: <%-locals.user.name%><br> 
+              </p>
+              <p class ="card-text" >
+                <strong>Email</strong>: <%= user.email %> 
+              </p>
+              <%  if (locals.changePassword) { %>
+              <a type="button" class="no-decoration font-weight-bold" id='change_password_link'>Change Password</a>
+              <% } %>
+              <div class="w-75" id="change_password">
+                <form action="POST" data-user="<%-locals.user._id%>" id="change_password_form">
+                  <input required
+                    type="password"
+                    id="password"
+                    name="password"
+                    class="form-control mt-2 w-50"
+                    placeholder="Create Password"
+                    
+                  />
+
+
+                  <input required
+                    type="password"
+                    id="password2"
+                    name="password2"
+                    class="form-control mt-2 w-50"
+                    placeholder="Confirm Password"
+                  />
+               
+                  <button type="submit" id="change-btn" class="mt-3 btn btn-secondary"'>OK</button>
+               
+                  </form>
+
+                 
+               </div>
+               <p id="message"></p>
+          </div>
+      </div> 
+   </div> 
+   </div>
+   </div>
+  
+  </body>
+</html>

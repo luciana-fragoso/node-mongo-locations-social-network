@@ -13,17 +13,32 @@
                     <div class="card-body">
                       <a class="text-decoration-none" href="../location/<%-loc[i]._id%>"><h4 class="location-title text-dark font-weight-bold mt-2"><%- loc[i].title.charAt(0).toUpperCase() + loc[i].title.slice(1) %></h4></a>
                     </div>
+                    <% if (locals.user_id !== null){ %>
                     <div class="card-footer">
                       <div class="d-flex">
                         <div class="likes-index">
-                          <span><i class="fa fa-thumbs-up text-dark"></i><%- loc[i].numLikes.length %> </span>
-                          <span><i class="ml-3 fa fa-thumbs-down text-dark"></i> <%- loc[i].numDislikes.length %></span>
+
+                          <span><i class="fa fa-thumbs-up text-dark"></i>
+                            <% if (loc[i].numLikes.length > 0) {%>
+                            <%- loc[i].numLikes.length %> 
+                          <% }%>
+                          </span>
+                          <span><i class="ml-3 fa fa-thumbs-down text-dark"></i>
+                            <% if (loc[i].numDislikes.length > 0) {%>
+                              <%- loc[i].numDislikes.length %> 
+                            <% }%>
+                          </span>
                         </div>
                       <div class="comments-index">
-                        <span class="float-right"><i class="fa fa-comments text-dark"></i> <%- loc[i].comments.length %></span>
+                        <span class="float-right"><i class="fa fa-comments text-dark"></i>
+                          <% if (loc[i].comments.length > 0) {%>
+                          <%- loc[i].comments.length %>
+                        <% } %>
+                        </span>
                       </div>
                     </div>
                   </div>
+                  <% } %>
                 </div>
 
                 </li>

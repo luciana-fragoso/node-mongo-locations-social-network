@@ -40,7 +40,7 @@ body{
 /* Trick */
 .main {
     width: 100%;
-    margin-top: 180px;
+    margin-top: 235px;
     position: absolute;
     
 }
@@ -49,7 +49,7 @@ body{
 }
 .wrapper {
     width: 80%;
-    height: 500px;
+    height: 445px;
     margin-top: 20px !important;
     margin: auto;
     padding: 20px;
@@ -60,31 +60,42 @@ body{
   /* navbar styling rules */
   
 .navbar {
-  border: 1px solid #9fa09a !important;
-  border-bottom: 0px !important;
-  background-color: #ECECEB ;
- 
+  background-color: #ecf7f6;
 }
 
 .title {   
-    color: #7f7f7f;
+    color: #3C403D;
     font-family: 'Oleo Script', cursive;
     font-weight: bold;
 }
 
+.icon {
+  max-height:150px;
+  padding:0px;
+  margin-left: 20px;
+  border-radius: 80px;
+  border: 1px solid #94d6f6;
+}
 .nav-link{
     font-size: 18px;
 }
 
 .navbar li {
+  background-color: #ee7a5c;
+  padding: 5px 15px !important;
     padding: 5px;
     margin-right: 10px;
-    border-radius: 9px;
+    border-radius: 12px;
+    
 }
 @media (max-width: 992px) {
     .navbar li {
         margin-top: 5px;
     }
+    .navbar ul {
+      margin-bottom: 20px !important;
+    }
+    
 
   }
   @media (max-width: 600px) {
@@ -100,9 +111,8 @@ body{
 }
 /* searchbar styling rules */
 .searchbar {
-    background-color: #ECECEB !important;
+    background-color: #aedfab;
     padding:10px;
-    
     width: 100% !important;
     border: 1px solid #9fa09a !important;
 }
@@ -133,6 +143,7 @@ body{
   font-family: 'Caladea', serif;
   text-align: center;
   margin-bottom: 25px;
+  color: #ee7a5c;
 }
 .form-heading {
     margin-bottom: 0px;
@@ -244,8 +255,19 @@ width: 80% !important;
 }
 
 /* see location page styling rules */
+.comment-login {
+  border-radius: 8px;
+  border: 1px solid #000000;
+  text-align: center! important;
+  width: 50%;
+  margin: auto;
+}
+.comment-login p {
+  margin-top: 4px;
+  margin-bottom: 4px !important;
+
+}
 #like:hover ,#dislike:hover {
-color: cornflowerblue;
 cursor: pointer;
 }
 .location-responsive {
@@ -255,7 +277,7 @@ margin: auto;
 }
 .location-image{
 width: 100%;
-max-height: 380px;
+max-height: 360px;
 }
 
 .quote {
@@ -339,4 +361,8 @@ margin-left: 5px !important;
 height: auto;
 width: 100%;
 }
- 
+
+/* changing passwords style */
+#change_password{
+  display: none;
+}

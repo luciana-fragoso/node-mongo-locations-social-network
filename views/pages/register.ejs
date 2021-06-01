@@ -10,19 +10,16 @@
     <%- include('../partials/searchbar') %>
     <div id="main" class="main">
       <div class="wrapper">
-
-
-<div class="row mt-5">
-  <div class="col-md-6 m-auto">
-    <div class="card card-body">
-      <h1 class="text-center mb-3">
-        <i class="fas fa-user-plus"></i> Register
-      </h1>
-     
+        <div class="form-content">
+          <a class="no-decoration" href="../signup">
+            <h1 class="font-weight-bold mb-2 subtitle">Sign Up</h1>
+          </a>
       <form action="/signup" method="POST">
+        <% if (locals.msg) { %>
+          <p class="text-danger text-center"><%- locals.msg%></p>
+            <% } %>
         <div class="form-group">
-          <label for="name">Name</label>
-          <input
+          <input required
             type="name"
             id="name"
             name="name"
@@ -32,8 +29,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
-          <input
+          <input required
             type="email"
             id="email"
             name="email"
@@ -43,8 +39,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
-          <input
+          <input required
             type="password"
             id="password"
             name="password"
@@ -54,8 +49,7 @@
           />
         </div>
         <div class="form-group">
-          <label for="password2">Confirm Password</label>
-          <input
+          <input required
             type="password"
             id="password2"
             name="password2"
@@ -64,11 +58,13 @@
             value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
           />
         </div>
-        <button type="submit" class="btn btn-primary btn-block">
+        <button type="submit" class="btn btn-secondary btn-block">
           Register
         </button>
       </form>
-      <p class="lead mt-4">Have An Account? <a href="/login">Login</a></p>
+      <p class="lead mt-4">
+        Have an account? <a class="no-decoration font-weight-bold text-dark" href="/login">Login</a>
+      </p>
     </div>
   </div>
 </div>

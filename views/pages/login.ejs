@@ -10,38 +10,38 @@
     <%- include('../partials/searchbar') %>
     <div id="main" class="main">
       <div class="wrapper">
-
-<div class="row mt-5">
-    <div class="col-md-6 m-auto">
-      <div class="card card-body">
-        <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i> Login</h1>
+        <div class="form-content">
+          <a class="no-decoration" href="../login">
+            <h1 class="font-weight-bold mb-2 subtitle">Login</h1>
+          </a>
         <form action="/login" method="POST">
+          <% if (locals.msg) { %>
+            <p class="text-danger text-center"><%- locals.msg%></p>
+              <% } %>
           <div class="form-group">
-            <label for="email">Email</label>
             <input
               type="email"
               id="email"
               name="email"
               class="form-control"
-              placeholder="Enter Email"
+              placeholder="Email" required
             />
           </div>
           <div class="form-group">
-            <label for="password">Password</label>
             <input
               type="password"
               id="password"
               name="password"
               class="form-control"
-              placeholder="Enter Password"
+              placeholder="Password" required
             />
           </div>
-          <button type="submit" class="btn btn-primary btn-block">Login</button>
+          <button class="btn btn-secondary btn-block justify-content-center btn-form" type="submit">OK</button>
         </form>
         <p class="lead mt-4">
-          No Account? <a href="/signup">Register</a>
+          No account yet? <a class="no-decoration font-weight-bold text-dark" href="/signup">Register</a>
         </p>
-      </div>
+    
     </div>
   </div>
   </div>

@@ -2,7 +2,7 @@ $( document ).ready(function() {
 
     
     $("#search-button").on('click',function(e) {search_function(e); });
-    $("#search").on('keyup change',function(e) {search(e); });
+    $("#search").on('keyup',function(e) {search(e); });
 
     
     
@@ -42,9 +42,9 @@ $( document ).ready(function() {
                 $("#search-results").append(
                     "<div class='d-flex w-100 bg-light each-show'>"+
                     "<div class='show-search-image'>"+
-                    "<a href='../seeLocation/"+currentMatch.id+"'><img class='very-small-icon' src='/images/"+currentMatch.image_url+"' alt='"+currentMatch.title+" icon' /></a></div>"+
+                    "<a href='../location/"+currentMatch.id+"'><img class='very-small-icon' src='/images/"+currentMatch.image_url+"' alt='"+currentMatch.title+" icon' /></a></div>"+
                     "<div class='show-search-list'>"+
-                    "<a class='d-block text-danger' href='../seeLocation/"+currentMatch.id+"'>"
+                    "<a class='d-block text-danger' href='../location/"+currentMatch.id+"'>"
                     +currentMatch.title+"</a></div></div>");     
                 })
                 $("#search-results").css({ display: "block" });
@@ -110,7 +110,7 @@ $(window).on('wheel', function(e){
           $("#main").empty();
           let html = `<ul class="show-list">`;
           searchResults.forEach(function(currentMatch,index) {  
-            let url = "../seeLocation/"+currentMatch.id; 
+            let url = "../location/"+currentMatch.id; 
             html += `<li class="each-location-card mb-3">
                         <div class="card card-index">
                             <a class="text-decoration-none" href=`+url+`> <img class="card-img-top"  src="/images/`+currentMatch.image_url+`" id="image-`+currentMatch.id+`" alt="Image of `+currentMatch.title+`></a>

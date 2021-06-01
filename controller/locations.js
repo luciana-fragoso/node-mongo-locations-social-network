@@ -1,6 +1,7 @@
 
 
 const Location = require ('../model/location');
+const Image = require ('../model/image');
 const User = require("../model/user");
 const util = require("../util/check")
 
@@ -45,13 +46,15 @@ if (user_id !== null){
   }
 
   exports.newLocationPost =  async (req, res) => {
+     console.log(req.file.description);
+    
+    var user_id = navbarCheck(req.headers.cookie);
 
-    var loc = req.body;
     var newLocation = new Location({
-      title: loc.title.toLowerCase(),
-      description: loc.description,
+      title: req.body.title.toLowerCase(),
+      description: req.body.description,
       image_url: loc.image,
-      user_id : "60b228c4b35db6a19d097efa",
+      user_id : user_id,
       isApproved: false },
       );
  

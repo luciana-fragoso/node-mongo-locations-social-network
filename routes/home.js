@@ -7,7 +7,9 @@ const userController = require ('../controller/user');
 router.get('/',homeController.homepage);
 router.get('/login',homeController.login);
 router.get('/signup',homeController.signup);
-router.get('/myProfile',homeController.myProfile);
+router.get('/userPage/:id',homeController.userPage);
+
+router.post("/changePassword",userController.changePassword);
 
 router.get('/location/:id',locationController.seeLocation);
 router.get('/newLocation',locationController.newLocation);

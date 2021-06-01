@@ -12,40 +12,47 @@
     
     <div id="main" class="main" data-user="<%-locals.user_id%>">
 
-      <a class="text-decoration-none" href="../location/<%-loc._id%>"><h2 class="text-center text-danger mb-1 subtitle font-weight-bold mt-0"><%-loc.title.charAt(0).toUpperCase() + loc.title.slice(1)%></h2></a> 
+      <a class="text-decoration-none" href="../location/<%-loc._id%>"><h1 class="text-center mt-3 mb-3 subtitle font-weight-bold mt-0"><%-loc.title.charAt(0).toUpperCase() + loc.title.slice(1)%></h1></a> 
       <div class="location-responsive mt-0">
         <div class="image-div">
+          <% if (locals.user_id !== null){ %>
           <div class="justify-content-center d-flex mt-0 mb-3" id="recommendations-id" data-id="<%-loc._id%>">
-            
+            <% if (loc.numLikes.length > 0) { %>
               <i id="like" data-sit="<%-liked%>" class="fa fa-thumbs-up fa-lg"><span id="numLikes" class="font-weight-bold mr-4"><%-loc.numLikes.length%></span></i>
+              <% } else { %>
+              <i id="like" data-sit="<%-liked%>" class="fa fa-thumbs-up fa-lg"><span id="numLikes" class="font-weight-bold mr-4"></span></i>
+               <% } %> 
+              <% if (loc.numDislikes.length > 0) { %>
               <i id="dislike" data-sit="<%-disliked%>" class="fa fa-thumbs-down fa-lg"><span id="numDislikes" class="font-weight-bold"><%-loc.numDislikes.length%></span></i>
-              
+              <% } else {%>
+                <i id="dislike" data-sit="<%-disliked%>" class="fa fa-thumbs-down fa-lg"><span id="numDislikes" class="font-weight-bold"></span></i>
+              <% }  %>
          </div>
+         <% }%>
             <a class="text-decoration-none" href="../location/<%-loc._id%>"> <img src="/images/<%-loc.image_url%>" class="location-image" id="image-<%-loc._id%>" alt="Image of <%-loc.title%>"></a>
            
         </div>
-          <div class="text-div mt-3"> 
+          <div class="text-div"> 
             
              
-           <h6 class="text-dark font-weight-bold mt-2 mb-0">Author's Description</h6>
+           <h6 class="text-dark font-weight-bold mb-0">Author's Description</h6>
            <div class="quote w-100">
-             <q class="text-dark"><%- loc.description %>
+             <q class="text-dark"><%-loc.description.trim()%>
              </q>
            </div>
-         
+           <% if (locals.user_id !== null) { %>
           <div id="all-comments" class="w-100 mt-2">
             
               <% if (comments) {%>
                 <% for (var i=0;i<comments.length;i++) { %>
               <div class="each-comment mt-1">
                <q><%- comments[i].comment %></q> 
-               <span class="font-weight-bold"> - <%- comments[i].author %></span> 
+              <a href="../userPage/<%-comments[i].author_id%>"><span class="font-weight-bold"> - <%- comments[i].author %></span> </a>
               </div>
             <% } %>
               <% } %>
            
             </div>
-            <% if (locals.user_id !== null) {%>
             <form id="comment-form" class="mt-2">
             <div class="form-group" id="comment-div">
               <textarea class="p-1 form-control" id="comment" name="comment" placeholder="Write your comment" rows="1" required></textarea>
@@ -56,7 +63,12 @@
               </div>
             </div>
             </form>
-            <% } %>
+            <% } else { %>
+              <div class="comment-login">
+              <p clas="text-center w-100">Please <span class="font-weight-bold"><a class="text-dark" href="../login">login</a></span> to leave a comment</p>
+            </div>
+              <% } %>
+            
             <script>
               $(document).ready(function(e) {
   
