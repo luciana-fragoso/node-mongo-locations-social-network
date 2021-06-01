@@ -44,10 +44,12 @@ exports.signup = async(req,res)=>{
      const validPassword = await validatePassword(password, user.password);
      if (!validPassword) return next(new Error('Auth failed'))
      
-     const accessToken = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+     const accessToken = jwt.sign({ userId: user._id, role: user.role }, process.env.JWT_SECRET, {
         expiresIn: "1d"});
     res.cookie('nToken', accessToken, { httpOnly: true});
-    
+      if (user.role === 'admin')
+        res.redirect("/adminPage");
+      else
        res.redirect("/");
      
     } catch (error) {
