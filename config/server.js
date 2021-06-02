@@ -1,46 +1,37 @@
+const express = require("express");
+const mongoose = require("mongoose");
+const util = require("../util/check");
 
-const express = require('express');
-const mongoose = require('mongoose');
-const util = require("../util/check")
-
-require('dotenv').config()
-
+require("dotenv").config();
 
 const app = express();
 
-
-mongoose.connect('mongodb://localhost/location_db_schema', {
+mongoose.connect("mongodb://localhost/location_db_schema", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
-  useCreateIndex: true 
+  useCreateIndex: true,
 });
 
-
+/////////////////////hello//////////////////////
 
 //routes imports
-const homeRoute = require('../routes/home');
-
-
-
+const homeRoute = require("../routes/home");
 
 //middleware
 app.use(express.json());
-app.use(express.urlencoded({
-  extended: true
-}));
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 
 //setting view engine to ejs
-app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '../../public'));
+app.set("view engine", "ejs");
+app.use(express.static(__dirname + "../../public"));
 
 //middleware routes
-app.use('/',homeRoute);
-
-
-
-
+app.use("/", homeRoute);
 
 module.exports = app;
-
-
+app.use(express.json());
