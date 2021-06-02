@@ -1,11 +1,14 @@
 
-
+const UserController = require("./user")
 const Location = require ('../model/location');
-const Image = require ('../model/image');
 const User = require("../model/user");
 const util = require("../util/check")
 
-const UserController = require("./user")
+
+
+
+
+
 exports.seeLocation = async (req, res) => {
 
 var user_id = navbarCheck(req.headers.cookie);
@@ -46,19 +49,19 @@ if (user_id !== null){
   }
 
   exports.newLocationPost =  async (req, res) => {
-    
+    var image = req.file.path.slice(6);
     var loc = req.body;
-    
+ 
     var user_id = navbarCheck(req.headers.cookie);
 
     var newLocation = new Location({
       title: loc.title.toLowerCase(),
       description: loc.description,
-      image_url: loc.image,
+      image_url: image,
       user_id : user_id,
       isApproved: false },
       );
- 
+      
     newLocation
     .save()
     .then(result => {
@@ -185,3 +188,5 @@ if (user_id !== null){
      });
      
    }
+
+   

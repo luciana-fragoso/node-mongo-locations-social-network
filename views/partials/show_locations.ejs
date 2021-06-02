@@ -9,7 +9,7 @@
       
                 <li class="each-location-card mb-3">
                   <div class="card card-index">
-                    <a class="text-decoration-none" href="../location/<%-loc[i]._id%>"> <img class="card-img-top"  src="/images/<%-loc[i].image_url%>" id="image-<%-loc[i]._id%>" alt="Image of <%-loc[i].title%>"></a>
+                    <a class="text-decoration-none" href="../location/<%-loc[i]._id%>"> <img class="card-img-top"  src="<%-loc[i].image_url%>" id="image-<%-loc[i]._id%>" alt="Image of <%-loc[i].title%>"></a>
                     <div class="card-body">
                       <a class="text-decoration-none" href="../location/<%-loc[i]._id%>"><h4 class="location-title text-dark font-weight-bold mt-2"><%- loc[i].title.charAt(0).toUpperCase() + loc[i].title.slice(1) %></h4></a>
                     </div>

@@ -8,10 +8,10 @@ exports.homepage = async (req, res) => {
   Location.find({isApproved:true})
   .exec()
   .then(async result => {
+    
     var isAdmin;
     var user_id = navbarCheck(req.headers.cookie);
     if (user_id !== null){
-      
       isAdmin = await checkAdmin(user_id);
     }
     res.render("pages/index",{locations:result,user_id:user_id,isAdmin:isAdmin}); 
@@ -52,7 +52,7 @@ exports.login = async (req, res) => {
     .exec()
     .then(user => {  
       
-      res.render("pages/myProfile",{user:user,changePassword:loggedInUser,isAdmin:isAdmin});
+      res.render("pages/myProfile",{user:user,changePassword:loggedInUser,isAdmin:isAdmin,user_id:user_id});
      })
     .catch(err => {
       console.log(err);
